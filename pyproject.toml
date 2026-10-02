@@ -1,0 +1,22 @@
+[project]
+name = "personal-ai"
+version = "0.1.0"
+description = "Personal AI agent powered by NVIDIA Nemotron on Nebius."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = [
+    "openai>=3.23.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-m 'not live'"
+markers = ["live: makes real API calls to Nebius (run with: pytest -m live -s)"]
