@@ -29,7 +29,7 @@ Requirements: Docker with Compose v2.
 ```bash
 git clone <repo-url> personal-ai
 cd personal-ai
-cp .env.example .env        # then fill in NEBIUS_API_KEY etc.
+cp .env.example .env        # then set PROVIDER and LLM_API_KEY
 docker compose -f deploy/compose.yaml up --build
 ```
 
