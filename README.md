@@ -22,29 +22,26 @@ _TODO: link to the hosted instance and describe sign-in._
 1. Open the hosted app: `<URL>`
 2. Sign in and …
 
-## Self-host (Docker)
+## Local setup (uv)
 
-Requirements: Docker with Compose v2.
+Requires [uv](https://docs.astral.sh/uv/). Python 3.12 is pinned in `.python-version`, and dependency versions are pinned in `uv.lock`.
 
 ```bash
 git clone <repo-url> personal-ai
 cd personal-ai
 cp .env.example .env        # then set PROVIDER and LLM_API_KEY
-docker compose -f deploy/compose.yaml up --build
-```
-
-_TODO: add `deploy/compose.yaml` and document ports and volumes._
-
-### Local development (without Docker)
-
-Requires [uv](https://docs.astral.sh/uv/). Python 3.12 is pinned in `.python-version`, and dependency versions are pinned in `uv.lock`.
-
-```bash
 uv sync --locked            # install exactly what's in uv.lock
-uv run pytest               # run the tests
+uv run pytest               # offline tests; no API calls
+uv run pytest -m live -s    # one real Nemotron call; needs LLM_API_KEY
 ```
 
 To add a dependency, run `uv add <package>`. Commit the updated `uv.lock` along with it.
+
+## Self-host (Docker)
+
+Not available yet. There is no Dockerfile or `deploy/compose.yaml` yet, so use the uv setup above.
+
+_TODO: add `deploy/compose.yaml` and document ports, volumes and the run command._
 
 ## Troubleshooting
 

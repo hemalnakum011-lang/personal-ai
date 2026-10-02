@@ -19,4 +19,6 @@ package = false
 testpaths = ["tests"]
 pythonpath = ["."]
 addopts = "-m 'not live'"
-markers = ["live: makes real API calls to Nebius (run with: pytest -m live -s)"]
+markers = [
+    "live: makes one real chat call to the PROVIDER set in .env (nvidia_build or nebius); skipped without LLM_API_KEY; run with: pytest -m live -s",
+]
