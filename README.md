@@ -1,6 +1,6 @@
 # personal-ai
 
-A personal AI agent built in Python, powered by NVIDIA Nemotron models running on Nebius.
+A personal AI agent built in Python on NVIDIA Nemotron models. It currently calls Nemotron through NVIDIA's API (build.nvidia.com). Deployment on Nebius AI Cloud is planned but not yet done.
 
 > **Status:** skeleton — sections marked _TODO_ are still to be written.
 
@@ -85,12 +85,14 @@ reply.finish_reason           # "length" means truncated (also logged as a warni
 
 ## Nebius services used
 
-_TODO: confirm and fill in._
+No Nebius service has been used to run this project yet.
 
-| Service | Used for |
+| Service | Status |
 |---|---|
-| Nebius Token Factory (serverless) | Serving Nemotron models via `https://api.tokenfactory.nebius.com/v1/` |
-| _TODO_ | _e.g. compute / object storage / managed DB_ |
+| Nebius AI Cloud Serverless AI (Jobs) | Planned: run the app on CPU-only Nebius compute. Not yet deployed or verified. |
+| Nebius Token Factory | Supported in code (`PROVIDER=nebius`) but not currently used, and never tested with a live call. |
+
+_TODO: update this table once the project has actually run on Nebius._
 
 ## License
 
